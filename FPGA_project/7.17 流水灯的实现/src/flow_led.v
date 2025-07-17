@@ -26,11 +26,11 @@ module flow_led
         if(!rst_n)
 		  choose_led<=0;
         else if(!key)begin
-				if(choose_led==4)
-						choose_led<=0;
-				else if(cnt==CNT_MAX)
-						choose_led<=choose_led+1;
-			end else choose_led<=0;
+		if(choose_led==4)
+			choose_led<=0;
+		else if(cnt==CNT_MAX)
+			choose_led<=choose_led+1;
+	end else choose_led<=0;
     end
     
     
@@ -38,14 +38,14 @@ module flow_led
         if(!rst_n)
             led=~4'b0000;
         else if(!key)
-				case(choose_led)
-					0:led<=~4'b0001;
-					1:led<=~4'b0010;
-					2:led<=~4'b0100;
-					3:led<=~4'b1000;
-				default:led<=4'b0000;
-				endcase
-			else led<=~4'b0000;
+		case(choose_led)
+			0:led<=~4'b0001;
+			1:led<=~4'b0010;
+			2:led<=~4'b0100;
+			3:led<=~4'b1000;
+			default:led<=4'b0000;
+		endcase
+	else led<=~4'b0000;
     end
 
 endmodule
