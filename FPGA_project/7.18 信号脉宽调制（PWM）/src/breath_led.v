@@ -62,7 +62,7 @@ module breath_led
         if(!rst_n)
             led=4'b1111;
         else case(led_state)
-            0:  if(cnt_s>cnt_ms)
+	    0:  if(cnt_s>cnt_ms)	//该比较语句为实现脉宽调制的关键
                     led<=4'b0000;
                 else
                     led<=4'b1111;
